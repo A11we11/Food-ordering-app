@@ -1,6 +1,212 @@
 .navbar {
-    padding: 20px 0px;
+    padding: 1.25rem 0rem;
+    /* 20 */
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navbar .logo {
+    width: 9.375rem;
+    /* 150 */
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    color: #49667e;
+    font-size: 1.1125rem;
+    /* 18 */
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    /* 40 */
+
+}
+
+.navbar button {
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #fff4f2;
+}
+
+.navbar .active {
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+
+}
+
+.navbar li {
+    cursor: pointer;
+}
+
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    background: transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+/* Default hover effect */
+.navbar-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 107, 53, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Active state */
+.navbar-link.active {
+    color: var(--primary-color);
+    background-color: rgba(255, 107, 53, 0.15);
+    font-weight: 600;
+    transform: translateY(-2px);
+}
+
+/* Active indicator */
+.active-indicator {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    border-radius: 2px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 80%;
+    }
+}
+
+/* make dot notification near basket */
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+
+@media (max-width:1050px) {
+    .navbar .logo {
+        width: 140px;
+    }
+
+    .navbar-menu {
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar-right {
+        gap: 30px;
+    }
+
+    .navbar-right img {
+        width: 22px;
+    }
+
+    .navbar-right button {
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width:900px) {
+    .navbar .logo {
+        width: 120px;
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+
+    .navbar-right img {
+        width: 20px;
+    }
+
+    .navbar-right button {
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width:750px) {
+
+    .navbar-menu {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+/* Add to your existing navbar CSS */
+
+
+
+
+/* Ensure sections have proper spacing for fixed navbar */
+.section {
+    scroll-margin-top: 80px;
+    /* Adjust based on navbar height */
+}
+
+/* Apply to your sections */
+#explore-menu,
+#app-download,
+#footer {
+    scroll-margin-top: 80px;
+}
+
+
+.navbar-link.active {
+    font-weight: bold;
 }
