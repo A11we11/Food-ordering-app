@@ -2,8 +2,11 @@ import Logo from "../logo/Logo";
 import { Search, ShoppingBasket } from "lucide-react";
 import "../navBar/Navbar.css";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/storeContext";
+import { FaUserCircle } from "react-icons/fa";
+import { IoBagSharp } from "react-icons/io5";
+import { MdLogout } from "react-icons/md";
 
 interface NavItem {
   id: string;
@@ -19,7 +22,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
   const [activeItem, setActiveItem] = useState<string>("home");
 
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
 
   const navItems: NavItem[] = [
     { id: "home", label: "Home", path: "#", isExternal: false },
@@ -59,6 +62,14 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
+
   return (
     <div className="navbar">
       <Link to="/">
@@ -93,7 +104,24 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <button onClick={() => setShowLogin(true)}>sign in</button>
+        {!token ? (
+          <button onClick={() => setShowLogin(true)}>sign in</button>
+        ) : (
+          <div className="navbar-profile">
+            <FaUserCircle size={40} />
+            <ul className="nav-profile-dropdown">
+              <li>
+                <IoBagSharp />
+                <p>Orders</p>
+              </li>
+              <hr />
+              <li onClick={logout}>
+                <MdLogout />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

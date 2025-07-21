@@ -56,8 +56,8 @@ const StoreContextProvider = ({ children }: Props) => {
 export default StoreContextProvider;
  */
 
-import { createContext, useState, type ReactNode } from "react";
-import { food_list } from "../assets/assets";
+import axios from "axios";
+import { createContext, useEffect, useState, type ReactNode } from "react";
 
 interface FoodItem {
   _id: string;
@@ -79,6 +79,9 @@ interface StoreContextType {
   addToCart: (itemId: string) => void;
   removeFromCart: (itemId: string) => void;
   getTotalCartAmount: () => number;
+  url: string;
+  token: string;
+  setToken: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const StoreContext = createContext<StoreContextType>(
@@ -91,6 +94,9 @@ type Props = {
 
 const StoreContextProvider = ({ children }: Props) => {
   const [cartItems, setCartItems] = useState<CartItems>({});
+  const url = "http://localhost:4000";
+  const [token, setToken] = useState("");
+  const [food_list, setFoodList] = useState<FoodItem[]>([]);
 
   const addToCart = (itemId: string) => {
     setCartItems((prev) => ({
@@ -121,6 +127,21 @@ const StoreContextProvider = ({ children }: Props) => {
     return totalAmount;
   };
 
+  const fetchFoodList = async () => {
+    const response = await axios.get(url + "/api/food/list");
+    setFoodList(response.data.data);
+  };
+
+  useEffect(() => {
+    async function loadData() {
+      await fetchFoodList();
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token") || "");
+      }
+    }
+    loadData();
+  });
+
   const contextValue: StoreContextType = {
     food_list,
     cartItems,
@@ -128,6 +149,9 @@ const StoreContextProvider = ({ children }: Props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,
+    token,
+    setToken,
   };
 
   return (
@@ -138,71 +162,3 @@ const StoreContextProvider = ({ children }: Props) => {
 };
 
 export default StoreContextProvider;
-
-/* 
-import { createContext, useState, type ReactNode } from "react";
-import { food_list } from "../assets/assets";
-
-interface FoodItem {
-  _id: string;
-  name: string;
-  image: string;
-  price: number;
-  description: string;
-  category: string;
-}
-
-interface CartItemsType {
-  [itemId: string]: number;
-}
-
-interface StoreContextType {
-  food_list: FoodItem[];
-  cartItems: CartItemsType;
-  setCartItems: React.Dispatch<React.SetStateAction<CartItemsType>>;
-  addToCart: (itemId: string) => void;
-  removeFromCart: (itemId: string) => void;
-}
-
-export const StoreContext = createContext<StoreContextType>(
-  {} as StoreContextType
-);
-
-type Props = {
-  children: ReactNode;
-};
-
-const StoreContextProvider = ({ children }: Props) => {
-  const [cartItems, setCartItems] = useState<CartItemsType>({});
-
-  const addToCart = (itemId: string) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1,
-    }));
-  };
-
-  const removeFromCart = (itemId: string) => {
-    setCartItems((prev) => {
-      const newCount = Math.max(0, (prev[itemId] || 0) - 1);
-      return { ...prev, [itemId]: newCount };
-    });
-  };
-
-  const contextValue: StoreContextType = {
-    food_list,
-    cartItems,
-    setCartItems,
-    addToCart,
-    removeFromCart,
-  };
-
-  return (
-    <StoreContext.Provider value={contextValue}>
-      {children}
-    </StoreContext.Provider>
-  );
-};
-
-export default StoreContextProvider;
- */

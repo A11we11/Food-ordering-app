@@ -15,9 +15,8 @@ interface FoodItem {
   price: number;
 }
 
-const [list, setList] = useState<FoodItem[]>([]);
-
 const List: React.FC<ListProps> = ({ url }) => {
+  const [list, setList] = useState<FoodItem[]>([]);
   const fetchList = async () => {
     const response = await axios.post(`${url}/api/food/list`);
     if (response.data.success) {
