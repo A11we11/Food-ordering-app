@@ -1,10 +1,14 @@
+import Logo from "../Logo";
+import profile from "../../assets/profile3.jpg";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img src="" alt="" className="logo" />
-      <img src="" alt="" className="profile" />
+      <div className="logo">
+        <Logo width={20} height={20} />
+      </div>
+      <img src={profile} alt="" className="profile" />
     </div>
   );
 };
