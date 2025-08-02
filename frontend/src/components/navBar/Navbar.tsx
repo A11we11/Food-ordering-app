@@ -1,5 +1,5 @@
 import Logo from "../logo/Logo";
-import { Search, ShoppingBasket } from "lucide-react";
+import { ShoppingBasket } from "lucide-react";
 import "../navBar/Navbar.css";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -96,11 +96,12 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
           </li>
         ))}
       </ul>
+
       <div className="navbar-right">
-        <Search width="50" height="50" />
+        {/*  <Search width="50" height="50" /> */}
         <div className="navbar-search-icon">
           <Link to="/cart">
-            <ShoppingBasket width="50" height="50" />
+            <ShoppingBasket size={35} />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
@@ -108,15 +109,15 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
           <button onClick={() => setShowLogin(true)}>sign in</button>
         ) : (
           <div className="navbar-profile">
-            <FaUserCircle size={40} />
+            <FaUserCircle size={35} />
             <ul className="nav-profile-dropdown">
-              <li>
-                <IoBagSharp />
+              <li onClick={() => navigate("/myorders")}>
+                <IoBagSharp size={20} />
                 <p>Orders</p>
               </li>
               <hr />
               <li onClick={logout}>
-                <MdLogout />
+                <MdLogout size={20} />
                 <p>Logout</p>
               </li>
             </ul>

@@ -5,13 +5,15 @@ const Header = () => {
     <div className="header">
       <div className="header-contents">
         <h2>Order your favourite food here</h2>
-        <p>
-          choose from a diverse menu featuring a delectable array of dishes
-          crafted with the finest ingredients and culinary expertise. our
-          mission is to satisfy your cravings and elevate your dining
-          experience, one delicious meal at a time.
+        <p className="header-description">
+          "Welcome to QuikBite ,your go-to food delivery app where convenience
+          meets flavor. Discover your favorite meals from top restaurants around
+          you and get them delivered hot and fresh, right to your doorstep.
+          Whether you're craving local dishes, fast food, or a healthy bite,
+          QuikBite brings it all to your fingertips – fast, easy, and always
+          satisfying."
         </p>
-        <button>View Menu</button>
+        <button className="button">View Menu</button>
       </div>
     </div>
   );

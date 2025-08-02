@@ -2,12 +2,21 @@ import { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/storeContext";
 import { useNavigate } from "react-router-dom";
+/* import PaystackButton from "../../components/PaystackButton"; */
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
 
   const navigate = useNavigate();
+
+  const handleProceedToCheckout = () => {
+    try {
+      navigate("/order");
+    } catch (error) {
+      console.error("Navigation error:", error);
+    }
+  };
 
   return (
     <div className="cart">
@@ -25,7 +34,7 @@ const Cart = () => {
         {food_list.map((item) => {
           if (cartItems[item._id] > 0) {
             return (
-              <div>
+              <div key={item._id}>
                 <div className="cart-items-title cart-items-item">
                   <img src={url + "/images/" + item.image} alt="" />
                   <p>{item.name}</p>
@@ -40,6 +49,7 @@ const Cart = () => {
               </div>
             );
           }
+          return null;
         })}
       </div>
       <div className="cart-bottom">
@@ -52,7 +62,7 @@ const Cart = () => {
             </div>
             <hr />
             <div className="cart-total-details">
-              <p>Details Fee</p>
+              <p>Delivery Fee</p>
               <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr />
@@ -63,7 +73,11 @@ const Cart = () => {
               </b>
             </div>
           </div>
-          <button onClick={() => navigate("/order")}>
+
+          <button
+            onClick={handleProceedToCheckout}
+            disabled={getTotalCartAmount() === 0}
+          >
             PROCEED TO CHECKOUT
           </button>
         </div>
@@ -72,7 +86,7 @@ const Cart = () => {
             <p>If you a promo code, Enter it here</p>
             <div className="cart-promocode-input">
               <input type="text" placeholder="promo code" />
-              <button></button>
+              <button>Submit</button>
             </div>
           </div>
         </div>

@@ -2,8 +2,7 @@
 import "./FoodItem.css";
 import { useContext } from "react";
 import { StoreContext } from "../../context/storeContext";
-import minus from "../../assets/minus.svg";
-import plus from "../../assets/minus.svg";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 interface FoodItemProps {
   id: string;
@@ -27,18 +26,16 @@ const FoodItem = ({ id, name, price, description, image }: FoodItemProps) => {
         />
 
         {!cartItems[id] ? (
-          <img
-            src={plus}
-            alt=""
-            onClick={() => addToCart(id)}
-            className="add"
-          />
+          <div className="add">
+            <FaPlus onClick={() => addToCart(id)} size={30} />
+          </div>
         ) : (
           <div className="food-item-counter">
-            <img src={minus} alt="" onClick={() => removeFromCart(id)} />
+            <FaMinus onClick={() => removeFromCart(id)} size={25} />
 
             <p>{cartItems[id]}</p>
-            <img src={plus} alt="" onClick={() => addToCart(id)} />
+
+            <FaPlus onClick={() => addToCart(id)} size={25} />
           </div>
         )}
       </div>

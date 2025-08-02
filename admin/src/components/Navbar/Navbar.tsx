@@ -1,14 +1,15 @@
 import Logo from "../Logo";
-import profile from "../../assets/profile3.jpg";
 import "./Navbar.css";
+import { CircleUserRound } from "lucide-react";
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <Logo width={40} height={40} />
+        <Logo width={200} />
       </div>
-      <img src={profile} alt="" className="profile" />
+
+      <CircleUserRound size={35} />
     </div>
   );
 };

@@ -22,16 +22,23 @@
     gap: 30px;
     text-align: center;
     margin: 20px 0px;
+    overflow-x: scroll;
 }
 
-.explore-menu-list::-webkit-scrollbar {
-    display: none;
+@media (min-width: 750px) {
+
+
+    .explore-menu-list::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-.explore-menu-list-item {
+
+.explore-menu-list-item img {
     width: 7.5vw;
     min-width: 80px;
     cursor: pointer;
+    border-radius: 10%;
     transition: 0.2s;
 }
 

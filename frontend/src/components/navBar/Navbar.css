@@ -213,6 +213,7 @@
 
 .navbar-profile {
     position: relative;
+    cursor: pointer;
 }
 
 .nav-profile-dropdown {
@@ -220,9 +221,10 @@
     display: none;
     right: 0;
     z-index: 1;
+
 }
 
-.nav-profile-dropdown .navbar-profile:hover {
+.navbar-profile:hover .nav-profile-dropdown {
     display: flex;
     flex-direction: column;
     gap: 10px;

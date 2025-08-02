@@ -60,7 +60,7 @@ export const menu_list = [
     menu_image: Cake,
   },
   {
-    menu_name: "Pure Veg",
+    menu_name: "PureVeg",
     menu_image: PureVeg,
   },
   {
@@ -342,7 +342,7 @@ export const food_list = [
     price: 12,
     description:
       "Food provides essential nutrients for overall health and well being",
-    category: "pasta",
+    category: "Pasta",
   },
   {
     _id: "31",
@@ -351,6 +351,6 @@ export const food_list = [
     price: 12,
     description:
       "Food provides essential nutrients for overall health and well being",
-    category: "pasta",
+    category: "Pasta",
   },
 ];

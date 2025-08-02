@@ -2,7 +2,7 @@ import axios from "axios";
 import { StoreContext } from "../../context/storeContext";
 import "./LoginPop.css";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
 interface LoginPopupProps {
@@ -30,7 +30,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
     console.log(data);
   }, [data]); */
 
-  const onLogin = async (e) => {
+  const onLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let newUrl = url;
     if (currState === "Login") {
