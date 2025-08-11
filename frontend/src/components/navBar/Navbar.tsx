@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
 
   return (
     <div className="navbar">
-      <Link to="/">
+      <Link to="/" aria-label="Logo">
         <Logo width="120" height="48" />
       </Link>
       <ul className="navbar-menu">
@@ -100,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ setShowLogin }) => {
       <div className="navbar-right">
         {/*  <Search width="50" height="50" /> */}
         <div className="navbar-search-icon">
-          <Link to="/cart">
+          <Link to="/cart" aria-label="Shopping Basket">
             <ShoppingBasket size={35} />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>

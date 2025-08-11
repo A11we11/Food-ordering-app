@@ -2,7 +2,6 @@ import { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/storeContext";
 import { useNavigate } from "react-router-dom";
-/* import PaystackButton from "../../components/PaystackButton"; */
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
@@ -36,7 +35,7 @@ const Cart = () => {
             return (
               <div key={item._id}>
                 <div className="cart-items-title cart-items-item">
-                  <img src={url + "/images/" + item.image} alt="" />
+                  <img src={url + "/images/" + item.image} alt="item images" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>

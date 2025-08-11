@@ -18,6 +18,7 @@ const Footer = () => {
             hosting friends and family, QuikBite makes it easier than ever to
             enjoy your favorite dishes, delivered fast and fresh.
           </p>
+
           <div className="footer-social-icons">
             <RiFacebookBoxFill size={35} />
             <FaSquareXTwitter size={35} />
@@ -43,7 +44,7 @@ const Footer = () => {
       </div>
       <hr />
       <p className="footer-copyright">
-        Copyright 2024 © QuikBite.com - All Right Reserved.
+        Copyright 2025 © QuikBite.com - All Right Reserved.
       </p>
     </div>
   );

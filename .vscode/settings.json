@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["Deliverybox", "myorders", "Toastify", "userorders"]
+  "cSpell.words": [
+    "Carthandlers",
+    "Deliverybox",
+    "myorders",
+    "Quik",
+    "refetches",
+    "Toastify",
+    "userorders"
+  ]
 }
