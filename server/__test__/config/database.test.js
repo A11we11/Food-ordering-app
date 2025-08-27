@@ -6,21 +6,6 @@ import { connectDB } from "../../config/db.js";
 jest.mock("mongoose");
 
 describe("Database Connection", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-
-    // Mock environment variables
-    process.env.MONGO_URI = "mongodb://localhost:27017/test-db";
-
-    // Mock console.log to avoid cluttering test output
-    jest.spyOn(console, "log").mockImplementation();
-  });
-
-  afterEach(() => {
-    // Restore console.log
-    console.log.mockRestore();
-  });
-
   describe("connectDB function", () => {
     it("should connect to MongoDB successfully", async () => {
       // Mock successful connection
