@@ -8,11 +8,15 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
 
-    setupFiles: ["./src/test/setup.ts"],
+    setupFiles: ["./src/test/setup.ts", "./src/setupTests.ts"],
+
     css: true,
     /*   typecheck: {
       tsconfig: "./tsconfig.app.json",
     }, */
+    typecheck: {
+      tsconfig: "tsconfig.test.json",
+    },
   },
   assetsInclude: ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.svg"],
   define: {
