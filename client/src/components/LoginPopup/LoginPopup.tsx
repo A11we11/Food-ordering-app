@@ -50,7 +50,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
   return (
     <div className="login-popup">
       <form className="login-popup-container" onSubmit={onLogin}>
-        <div className="login-popup-tittle">
+        <div className="login-popup-title">
           <h2>{currState}</h2>
           <RxCross2 size={30} onClick={() => setShowLogin(false)} />
           {/* <img src="" alt="" /> */}
