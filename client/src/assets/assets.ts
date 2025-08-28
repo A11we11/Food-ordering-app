@@ -3,7 +3,7 @@ import Rolls from "./rolls1.jpg";
 import Desserts from "./deserts_1.jpg";
 import Sandwich from "./sandwich_1.jpg";
 import Cake from "./cake_1.jpg";
-import ChocolateCake from "./cake_2.jpg";
+import ChocolateCake from "./Cake_2.jpg";
 import PureVeg from "./pureveg1.jpg";
 import Pasta from "./pasta_1.jpg";
 import coconutcake from "./coconutcake.jpeg";

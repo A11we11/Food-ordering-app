@@ -14,11 +14,13 @@ export default tseslint.config([
       tseslint.configs.recommended,
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
+      "plugin:import/recommended",
     ],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    plugins: ["import"],
     rules: {
       "import/no-unresolved": ["error", { caseSensitive: true }],
     },
