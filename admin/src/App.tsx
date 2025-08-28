@@ -8,7 +8,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const url = "http://localhost:4000";
+  const url =
+    import.meta.env.MODE === "development"
+      ? "http://localhost:4000"
+      : "https://food-ordering-app-backend-ffd5.onrender.com";
   return (
     <div>
       <ToastContainer />
@@ -25,5 +28,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;
