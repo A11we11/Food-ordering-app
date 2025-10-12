@@ -10,6 +10,7 @@ const orderSchema = new mongoose.Schema({
   payment: { type: Boolean, default: false },
   reference: { type: String }, // Paystack transaction reference
 });
+
 const orderModel =
   mongoose.models.order || mongoose.model("order", orderSchema);
 

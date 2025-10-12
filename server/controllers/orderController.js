@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
+const frontend_url = process.env.CLIENT_URL || "http://localhost:5173";
 
 // Axios instance for Paystack
 const paystack = axios.create({
