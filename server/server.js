@@ -15,8 +15,11 @@ const port = process.env.PORT || 4000;
 app.use(express.json());
 app.use(
   cors({
-    origin:
-      process.env.CLIENT_URL || "https://food-ordering-app-uc34.vercel.app",
+    /* origin: process.env.CLIENT_URL || "http://localhost:5173", */
+    origin: [
+      "http://food-ordering-app-uc34.vercel.app",
+      "http://localhost:5173",
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
