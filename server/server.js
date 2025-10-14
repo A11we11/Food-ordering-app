@@ -17,7 +17,7 @@ app.use(
   cors({
     /* origin: process.env.CLIENT_URL || "http://localhost:5173", */
     origin: [
-      "http://food-ordering-app-uc34.vercel.app",
+      "https://food-ordering-app-uc34.vercel.app",
       "http://localhost:5173",
     ],
     methods: ["GET", "POST", "DELETE", "PUT"],

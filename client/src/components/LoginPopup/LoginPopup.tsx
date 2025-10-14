@@ -38,13 +38,38 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
     } else {
       newUrl += "/api/user/register";
     }
-    const response = await axios.post(newUrl, data);
-    if (response.data.success) {
-      setToken(response.data.token);
-      localStorage.setItem("token", response.data.token);
-    } else {
-      alert(response.data.message);
+
+    //
+
+    try {
+      const response = await axios.post(newUrl, data);
+
+      // Clear form values after submission (success or failure)
+      setData({
+        name: "",
+        email: "",
+        password: "",
+      });
+
+      if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        // Close the popup on successful login
+        setShowLogin(false);
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      // Clear form values even on error
+      setData({
+        name: "",
+        email: "",
+        password: "",
+      });
+      alert("An error occurred. Please try again.");
+      console.log(error);
     }
+    //
   };
 
   return (
