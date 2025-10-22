@@ -7,11 +7,17 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    user-select: none;
+    /* Prevent text/image selection */
 
-    /* Make all items fill the grid cell height */
+
 }
 
-
+.food-item-counter,
+.food-item-img-container,
+.food-item .add {
+    user-select: none;
+}
 
 .food-item-image {
     width: 100%;
@@ -63,14 +69,29 @@
     position: relative;
 }
 
-.food-item-img-container .add {
+/* .food-item-img-container .add {
     width: 35px;
     position: absolute;
     background-color: white;
     bottom: 15px;
     right: 15px;
     cursor: pointer;
+    border-radius: 50%; 
+} */
+
+.food-item-img-container .add {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    background-color: white;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px #00000020;
 }
 
 .food-item-counter {

@@ -27,6 +27,7 @@ app.use(
       "Cache-Control",
       "Expires",
       "Pragma",
+      "token",
     ],
     credentials: true,
   })

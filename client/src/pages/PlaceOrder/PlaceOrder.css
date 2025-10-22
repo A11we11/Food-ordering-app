@@ -39,3 +39,32 @@
 .place-order .cart-total button {
     margin-top: 30px;
 }
+
+
+
+/* Mobile responsive - stack vertically */
+@media (max-width: 768px) {
+    .place-order {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .place-order-left,
+    .place-order-right {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* For the multi-field inputs to also stack on mobile */
+.multi-fields {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .multi-fields {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

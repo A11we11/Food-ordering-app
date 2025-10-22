@@ -94,6 +94,18 @@ const StoreContextProvider = ({ children }: Props) => {
     return totalAmount;
   };
 
+  /*  const getTotalCartAmount = () => {
+    return Object.entries(cartItems).reduce((total, [itemId, quantity]) => {
+      if (quantity > 0) {
+        const itemInfo = food_list.find((product) => product._id === itemId);
+        if (itemInfo) {
+          return total + itemInfo.price * quantity;
+        }
+      }
+      return total;
+    }, 0);
+  }; */
+
   const fetchFoodList = async () => {
     try {
       const response = await axios.get(url + "/api/food/list");

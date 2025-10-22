@@ -50,3 +50,20 @@ const getCart = async (req, res) => {
 };
 
 export { addToCart, removeFromCart, getCart };
+
+/* 
+app.post("/api/cart/get", async (req, res) => {
+  const token = req.headers.token;
+
+  // Decode token to get user ID
+  const decoded = jwt.verify(token, SECRET);
+  const userId = decoded.userId; // "12345"
+
+  // Find user's cart in database
+  const cart = await Cart.findOne({ userId: userId });
+
+  res.json({
+    success: true,
+    cartData: cart.items, // { "food_001": 2, "food_002": 1 }
+  });
+}); */

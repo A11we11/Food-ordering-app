@@ -1,4 +1,3 @@
-/* import StarRating from "../StarRating"; */
 import "./FoodItem.css";
 import { useContext } from "react";
 import { StoreContext } from "../../context/storeContext";
@@ -27,15 +26,15 @@ const FoodItem = ({ id, name, price, description, image }: FoodItemProps) => {
 
         {!cartItems[id] ? (
           <div className="add">
-            <FaPlus onClick={() => addToCart(id)} size={30} />
+            <FaPlus onClick={() => addToCart(id)} size={20} />
           </div>
         ) : (
           <div className="food-item-counter">
-            <FaMinus onClick={() => removeFromCart(id)} size={25} />
+            <FaMinus onClick={() => removeFromCart(id)} size={20} />
 
             <p>{cartItems[id]}</p>
 
-            <FaPlus onClick={() => addToCart(id)} size={25} />
+            <FaPlus onClick={() => addToCart(id)} size={20} />
           </div>
         )}
       </div>

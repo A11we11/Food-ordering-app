@@ -9,7 +9,7 @@ interface LoginPopupProps {
   setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
+const LoginPopup = ({ setShowLogin }: LoginPopupProps) => {
   const { url, setToken } = useContext(StoreContext);
   const [currState, setCurrState] = useState("Sign Up");
   const [data, setData] = useState({
@@ -26,12 +26,14 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
     const value = e.target.value;
     setData((data) => ({ ...data, [name]: value }));
   };
+
   /*  useEffect(() => {
     console.log(data);
   }, [data]); */
 
   const onLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     let newUrl = url;
     if (currState === "Login") {
       newUrl += "/api/user/login";
@@ -111,9 +113,11 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ setShowLogin }) => {
             required
           />
         </div>
+
         <button type="submit">
           {currState === "Sign Up" ? "Create account" : "Login"}
         </button>
+
         <div className=" login-popup-condition ">
           <input type="checkbox" required />
           <p>By continuing, i agree to the terms of use & privacy policy</p>

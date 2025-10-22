@@ -7,7 +7,7 @@ interface FoodDisplayProps {
   category: string;
 }
 
-const FoodDisplay: React.FC<FoodDisplayProps> = ({ category }) => {
+const FoodDisplay = ({ category }: FoodDisplayProps) => {
   const { food_list } = useContext(StoreContext);
 
   return (
