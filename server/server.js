@@ -19,6 +19,7 @@ app.use(
     origin: [
       "https://food-ordering-app-uc34.vercel.app",
       "http://localhost:5173",
+      "http://localhost:5174",
     ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [

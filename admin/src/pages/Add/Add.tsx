@@ -124,7 +124,7 @@ const Add: React.FC<AddProps> = ({ url }) => {
             <select onChange={onChangeHandler} name="category">
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
-              <option value="Deserts">Deserts</option>
+              <option value="Deserts">Desserts</option>
               <option value="Sandwich">Sandwich</option>
               <option value="Cake">Cake</option>
               <option value="PureVeg">PureVeg</option>
