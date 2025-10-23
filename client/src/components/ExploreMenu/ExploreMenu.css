@@ -13,9 +13,11 @@
 .explore-menu-text {
     max-width: 60%;
     columns: #808080;
+    line-height: 1.4;
 }
 
-.explore-menu-list {
+/* List wrapper */
+/* .explore-menu-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,31 +26,123 @@
     margin: 20px 0px;
     overflow-x: scroll;
 
+} */
+
+.explore-menu-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding-bottom: 6px;
 }
 
+
+
 @media (min-width: 750px) {
-
-
     .explore-menu-list::-webkit-scrollbar {
         display: none;
     }
+
+    /*   .explore-menu-list {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        } */
 }
 
 
+/* BUTTON RESET: remove all default browser styles */
+.explore-menu-list-item {
+    -webkit-appearance: none;
+    appearance: none;
+    all: unset;
+    /* reset UA styles */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px;
+    /* small clickable area */
+    border-radius: 10px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    /* mobile highlight */
+}
+
+/* Make sure it stays focusable and accessible */
+.explore-menu-list-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+    border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Image styling */
 .explore-menu-list-item img {
     width: 7.5vw;
+    height: auto;
     min-width: 80px;
     cursor: pointer;
     border-radius: 10%;
     transition: 0.2s;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: block;
+    box-sizing: border-box;
 }
 
+/* Slight hover/press feedback */
+.explore-menu-list-item:hover img,
+.explore-menu-list-item:active img {
+    transform: translateY(-3px);
+}
+
+/* Label styling */
 .explore-menu-list-item p {
     margin-top: 10px;
     color: #747474;
     font-size: max(1.4vw, 16px);
-    cursor: pointer;
+    pointer-events: none;
+    /* prevents text selection when clicking */
 }
+
+/* ACTIVE state: use outline so it doesn't change layout */
+.explore-menu-list-item img.active,
+.explore-menu-list-item[data-active="true"] img {
+    outline: 4px solid purple;
+    outline-offset: 3px;
+    border-radius: 12px;
+    padding: 2px;
+    /* if you want a bit of inner spacing — adjust as needed */
+}
+
+
+
+/* Optional: add a subtle background for the selected button itself */
+.explore-menu-list-item[data-active="true"] {
+    background: rgba(128, 0, 128, 0.06);
+    /* very light purple */
+}
+
+
 
 .explore-menu hr {
     margin: 10px 0px;
@@ -59,14 +153,24 @@
 
 
 
-.explore-menu-list-item .active {
+/* .explore-menu-list-item .active {
     border: 4px solid purple;
     padding: 2px;
-}
+} */
 
+
+/* Responsive tweaks */
 @media (max-width:1050px) {
     .explore-menu-text {
         max-width: 100%;
         font-size: 14px;
     }
+
+    /*  .explore-menu-list {
+        gap: 18px;
+    }
+
+    .explore-menu-list-item img {
+        min-width: 68px;
+    } */
 }
